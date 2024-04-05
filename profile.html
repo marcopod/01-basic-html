@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+<main>
+    <form id="form" name="form" action="">
+        <label for="asunto">Asunto:</label>
+        <input type="text" id="asunto" name="asunto">
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+
+        <label for="comentarios">Comentarios:</label>
+        <input type="text" id="comentarios" name="comentarios">
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+
+        <label for="numero">Numero de telefono:</label>
+        <input type="tel" id="numero" name="numero">
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('form');
+        const name = document.getElementById('nombre').value;
+        const email = document.getElementById('email').value;
+
+        const message = `Gracias por sus comentarios ${name}, te contactaremos a ${email} en caso de ser necesario.`
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            console.log(message);
+        }
+
+        form.addEventListener('submit', handleFormSubmit);
+    });
+    </script>
+</main>
+
+</html>
