@@ -7,12 +7,11 @@ http.createServer(function(request, response) {
     let filePath;
 
     // Check the URL of the request
-    if (request.url === '/profile') {
+    if (request.url === '/profile') { 
         filePath = './profile.html';
     } else if (request.url === '/' || request.url === '/index') {
         filePath = './index.html';
     } else {
-        // If no known paths are matched, you can set a default or return a 404
         response.writeHead(404, {"Content-Type": "text/plain"});
         response.end("404 Not Found");
         return;
