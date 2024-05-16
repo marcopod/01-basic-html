@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useEffect, useState } from 'react';
 
@@ -24,9 +24,8 @@ const FavoriteCharacters: React.FC = () => {
   }, []);
 
   const fetchFavoriteCharacters = async (ids: number[]) => {
-    const characterPromises = ids.map(id =>
-      fetch(`https://rickandmortyapi.com/api/character/${id}`)
-        .then(response => response.json())
+    const characterPromises = ids.map((id) =>
+      fetch(`/api/findCharacter/${id}`).then((response) => response.json())
     );
     try {
       const characters = await Promise.all(characterPromises);
@@ -39,15 +38,20 @@ const FavoriteCharacters: React.FC = () => {
   };
 
   if (loading) return <div>Loading your favorite characters...</div>;
-  if (!favoriteCharacters.length) return <div>No favorite characters selected.</div>;
+  if (!favoriteCharacters.length)
+    return <div>No favorite characters selected.</div>;
 
   return (
     <div>
       <h1>Your Favorite Characters</h1>
       <div className="grid grid-cols-4 gap-4">
-        {favoriteCharacters.map(character => (
-          <a href={`/c/${character.id}`} key={character.id} className="flex flex-col items-center">
-            <img src={character.image} alt={`${character.name}'s image`} className="rounded-full w-24 h-24"/>
+        {favoriteCharacters.map((character) => (
+          <a
+            href={`/c/${character.id}`}
+            key={character.id}
+            className="flex flex-col items-center"
+          >
+            <img src={character.image} className="rounded-full w-24 h-24" />
             <h3>{character.name}</h3>
             <p>{character.species}</p>
           </a>

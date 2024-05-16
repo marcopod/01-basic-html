@@ -34,6 +34,5 @@ body {
 
 /* Change the trash icon color on hover */
 .favorite-svg-hover:hover .hover-fill {
-  fill: #F67E4B;
+  fill: #f67e4b;
 }
-
