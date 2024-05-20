@@ -57,9 +57,7 @@ function CharacterList() {
               href={`/c/${character.id}`}
               className="bg-gradient-to-r from-violet-600 to-indigo-600 rounded-md flex justify-center flex-col"
             >
-              <img
-                src={character.image}
-              ></img>
+              <img src={character.image}></img>
               <p className="text-center">
                 {character.name} - {character.species}
               </p>

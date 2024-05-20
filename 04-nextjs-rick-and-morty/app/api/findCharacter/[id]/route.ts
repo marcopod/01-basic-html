@@ -36,7 +36,7 @@ export async function GET(
     const character = await response.json();
     return NextResponse.json(character);
   } catch (error) {
-    console.error('Failed to fetch character:', error);
+    // console.error('Failed to fetch character:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
