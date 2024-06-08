@@ -51,11 +51,13 @@ const handler = NextAuth({
   },
   callbacks: {
     async signIn({ user }) {
+      const castUser = user as any; // or as { username?: string }
+      const username = castUser.username ?? '';
       const existingUser = await prisma.user.findFirst({
-        where: { username: user.username ?? '' },
+        where: { username },
       });
 
-      return !!existingUser; // Return true if user exists
+      return !!existingUser;
     },
     async jwt({ token, user }) {
       if (user) {
