@@ -31,6 +31,7 @@ function Register() {
 
   return (
     <form onSubmit={handleSubmit}>
+      Test
       <label htmlFor="username">Username:</label>
       <input
         className="text-black"
